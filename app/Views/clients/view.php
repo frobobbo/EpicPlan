@@ -42,6 +42,7 @@
         <li><a  role="presentation" href="<?php echo_uri("clients/contacts/" . $client_info->id); ?>" data-bs-target="#client-contacts"> <?php echo app_lang('contacts'); ?></a></li>
         <li><a  role="presentation" href="<?php echo_uri("clients/company_info_tab/" . $client_info->id); ?>" data-bs-target="#client-info"> <?php echo app_lang('client_info'); ?></a></li>
         <li><a  role="presentation" href="<?php echo_uri("clients/projects/" . $client_info->id); ?>" data-bs-target="#client-projects"><?php echo app_lang('projects'); ?></a></li>
+        <li><a  role="presentation" href="<?php echo_uri("clients/vault/" . $client_info->id); ?>" data-bs-target="#client-vault"><?php echo app_lang('vault'); ?></a></li>
 
         <?php if ($show_invoice_info) { ?>
             <li><a  role="presentation" href="<?php echo_uri("clients/invoices/" . $client_info->id); ?>" data-bs-target="#client-invoices"> <?php echo app_lang('invoices'); ?></a></li>
@@ -92,6 +93,7 @@
         <div role="tabpanel" class="tab-pane fade" id="client-projects"></div>
         <div role="tabpanel" class="tab-pane fade" id="client-files"></div>
         <div role="tabpanel" class="tab-pane fade" id="client-info"></div>
+        <div role="tabpanel" class="tab-pane fade" id="client-vault"></div>
         <div role="tabpanel" class="tab-pane fade" id="client-contacts"></div>
         <div role="tabpanel" class="tab-pane fade" id="client-invoices"></div>
         <div role="tabpanel" class="tab-pane fade" id="client-payments"></div>

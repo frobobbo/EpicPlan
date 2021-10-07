@@ -114,7 +114,8 @@ class App_Controller extends Controller {
             'Estimate_comments_model',
             'Proposals_model',
             'Proposal_items_model',
-            'Checklist_template_model'
+            'Checklist_template_model',
+            'Vault_model'
         );
     }
 

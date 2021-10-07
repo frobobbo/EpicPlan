@@ -333,4 +333,29 @@ class Users_model extends Crud_model {
         return $query;
     }
 
+    function get_search_suggestion($search = "", $options = array()) {
+        error_log(print_r("IN users Serach Suggestions)", TRUE)); 
+
+        $users_table = $this->db->prefixTable('users');
+
+        $where = "";
+        $show_own_clients_only_user_id = get_array_value($options, "show_own_clients_only_user_id");
+        if ($show_own_clients_only_user_id) {
+            $where .= " AND ($users_table.created_by=$show_own_clients_only_user_id OR $users_table.owner_id=$show_own_clients_only_user_id)";
+        }
+
+
+        if ($search) {
+            $search = $this->db->escapeLikeString($search);
+        }
+
+        $sql = "SELECT $users_table.id, CONCAT($users_table.first_name, ' ', $users_table.last_name) as title
+        FROM $users_table  
+        WHERE $users_table.deleted=0 AND $users_table.user_type='client' AND (($users_table.first_name LIKE '%$search%') OR ($users_table.last_name LIKE '%$search%')) $where
+        ORDER BY $users_table.last_name ASC
+        LIMIT 0, 10";
+
+        return $this->db->query($sql);
+    }
+
 }

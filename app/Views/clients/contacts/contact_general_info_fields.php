@@ -83,6 +83,7 @@
             </div>
         </div>
     </div>
+    <!--
     <div class="form-group">
         <div class="row">
             <label for="skype" class="<?php echo $label_column; ?>">Skype</label>
@@ -98,7 +99,7 @@
                 ?>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="form-group">
         <div class="row">
             <label for="job_title" class="<?php echo $label_column; ?>"><?php echo app_lang('job_title'); ?></label>

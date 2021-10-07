@@ -241,7 +241,9 @@ class Clients extends Security_Controller {
             $groups = explode(",", $data->client_groups);
             foreach ($groups as $group) {
                 if ($group) {
-                    $group_list .= "<li>" . $group . "</li>";
+                    if ($group == "Active") { $style = "font-style:bold;color:green;"; }
+                    if ($group == "Inactive") { $style = "font-style:bold;color:red;"; }
+                    $group_list .= "<li style='$style'>" . $group . "</li>";
                 }
             }
         }
@@ -457,6 +459,17 @@ class Clients extends Security_Controller {
             return $this->template->view("clients/notes/index", $view_data);
         }
     }
+
+    /* load vault tab  */
+    function vault($client_id) {
+        $this->access_only_allowed_members();
+    
+        if ($client_id) {
+            $view_data['client_id'] = $client_id;
+            return $this->template->view("clients/vault/index", $view_data);
+        }
+    }
+    
 
     /* load events tab  */
 

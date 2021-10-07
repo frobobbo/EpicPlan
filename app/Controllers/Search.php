@@ -23,7 +23,8 @@ class Search extends Security_Controller {
     function search_modal_form() {
         $search_fields = array(
             "task",
-            "project"
+            "project",
+            "contact"
         );
 
         if ($this->can_access_clients()) {
@@ -68,6 +69,8 @@ class Search extends Security_Controller {
                 $result = $this->Clients_model->get_search_suggestion($search, $options)->getResult();
             } else if ($search_field == "todo" && get_setting("module_todo")) { //todo
                 $result = $this->Todo_model->get_search_suggestion($search, $this->login_user->id)->getResult();
+            } else if ($search_field == "contact") { //contacts
+                $result = $this->Users_model->get_search_suggestion($search, $options)->getResult();
             }
 
             $result_array = array();

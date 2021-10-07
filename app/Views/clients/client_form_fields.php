@@ -154,6 +154,7 @@
         </div>
     </div>
 </div>
+<!--
 <div class="form-group">
     <div class="row">
         <label for="vat_number" class="<?php echo $label_column; ?>"><?php echo app_lang('vat_number'); ?></label>
@@ -170,7 +171,7 @@
         </div>
     </div>
 </div>
-
+        -->
 <?php if ($login_user->user_type === "staff") { ?>
     <div class="form-group">
         <div class="row">

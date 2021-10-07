@@ -118,8 +118,10 @@
                         location = "<?php echo get_uri("projects/view"); ?>/" + this.value;
                     } else if (searchFieldValue === "client") {
                         location = "<?php echo get_uri("clients/view"); ?>/" + this.value;
+                    } else if (searchFieldValue == "contact") { //contacts
+                        location = "<?php echo get_uri("clients/contact_profile"); ?>/" + this.value;
+                       // $result = $this->Users_model->get_search_suggestion($search, $options)->result();
                     }
-
                     window.location.href = location;
                 }
             }

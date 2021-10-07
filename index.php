@@ -20,6 +20,7 @@ define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
  */
 
 // Ensure the current directory is pointing to the front controller's directory
+//error_log(print_r(__DIR__, TRUE));
 chdir(__DIR__);
 
 // Load our paths config file
@@ -29,14 +30,14 @@ require realpath(FCPATH . 'app/Config/Paths.php') ?: FCPATH . 'app/Config/Paths.
 
 $paths = new Config\Paths();
 
-error_log(print_r($paths, TRUE));
+//error_log(print_r($paths, TRUE));
 
 // Location of the framework bootstrap file.
 $bootstrap = rtrim($paths->systemDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'bootstrap.php';
 $app = require realpath($bootstrap) ?: $bootstrap;
 
-error_log(print_r($bootstrap, TRUE));
-error_log(print_r($app, TRUE));
+//error_log(print_r($bootstrap, TRUE));
+//error_log(print_r($app, TRUE));
 
 
 //set the variable to 'installed' after installation

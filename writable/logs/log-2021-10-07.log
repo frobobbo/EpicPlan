@@ -1,0 +1,18 @@
+CRITICAL - 2021-10-07 13:39:32 --> Undefined property: CodeIgniter\View\View::$login_user
+#0 C:\Users\Home\Documents\SPSDev\EpicPlan4\app\Views\vault\view.php(63): CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\View\View.php(230): include('...')
+#2 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\View\View.php(232): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\Common.php(1271): CodeIgniter\View\View->render()
+#4 C:\Users\Home\Documents\SPSDev\EpicPlan4\app\Libraries\Template.php(38): view()
+#5 C:\Users\Home\Documents\SPSDev\EpicPlan4\app\Controllers\Vault.php(158): App\Libraries\Template->view()
+#6 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\CodeIgniter.php(928): App\Controllers\Vault->view()
+#7 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController()
+#8 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\Users\Home\Documents\SPSDev\EpicPlan4\index.php(68): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-10-07 13:44:24 --> Call to undefined function App\Controllers\validate_submitted_data()
+#0 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\CodeIgniter.php(928): App\Controllers\Vault->getPassword()
+#1 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\CodeIgniter.php(436): CodeIgniter\CodeIgniter->runController()
+#2 C:\Users\Home\Documents\SPSDev\EpicPlan4\system\CodeIgniter.php(336): CodeIgniter\CodeIgniter->handleRequest()
+#3 C:\Users\Home\Documents\SPSDev\EpicPlan4\index.php(68): CodeIgniter\CodeIgniter->run()
+#4 {main}

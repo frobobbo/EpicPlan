@@ -37,7 +37,7 @@ class Logger extends BaseConfig
 	 *
 	 * @var integer|array
 	 */
-	public $threshold = 0;
+	public $threshold = 5;
 
 	/**
 	 * --------------------------------------------------------------------------
