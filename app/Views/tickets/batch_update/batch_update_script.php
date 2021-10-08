@@ -6,8 +6,10 @@
     //hide change status button and marked-checkboxes
     function hideBatchTicketsBtn() {
         $(".batch-cancel-btn").addClass("hide");
+        $(".batch-merge-btn").addClass("hide");
 
         $(".batch-active-btn").removeClass("hide");
+
 
         $(".batch-update-btn").addClass("hide");
         $(".batch-update-btn").removeAttr("data-action-uri");
@@ -20,9 +22,11 @@
 
     $(document).ready(function () {
         var $batchUpdateBtn = $(".batch-update-btn");
+        var $batchMergeBtn = $(".batch-merge-btn");
 
         //active batch operation of ticket
         $('body').on('click', '.batch-active-btn', function () {
+//        $('body').on('load', function () {
             var dom = "<td class='td-checkbox' style='border-right: 1px solid #f2f2f2; padding: 0 !important;'><a data-act='batch-operation-ticket-checkbox'><span class='checkbox-blank'></span></a></td>";
 
             $("#ticket-table thead tr").prepend("<th class='batch-update-header text-center'>-</th>");
@@ -56,15 +60,19 @@
 
             checkbox.removeClass("inline-loader");
 
-            if (batchTicketIds.length) {
+            if (batchTicketIds.length > 1){
                 $batchUpdateBtn.removeClass("hide");
+                $batchMergeBtn.removeClass("hide")
             } else {
                 $batchUpdateBtn.addClass("hide");
+                $batchMergeBtn.addClass("hide")
             }
 
             var serializeOfArray = batchTicketIds.join("-");
 
             $batchUpdateBtn.attr("data-action-url", "<?php echo_uri("tickets/batch_update_modal_form/"); ?>" + serializeOfArray);
+            $batchMergeBtn.attr("data-action-url", "<?php echo_uri("tickets/batch_merge_modal_form/"); ?>" + serializeOfArray);
+//            alert(batchTicketIds.length);
         });
     });
 </script>

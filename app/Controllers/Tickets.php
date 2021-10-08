@@ -962,6 +962,56 @@ class Tickets extends Security_Controller {
         echo json_encode(array("data" => $result));
     }
 
+
+
+    /* batch merge modal form */
+
+    function batch_merge_modal_form($ticket_ids = "") {
+        $this->access_only_allowed_members();
+        $view_data["ticket_ids"] = clean_data($ticket_ids);
+
+        $where = array("where_in" => array("id" => explode("-", $ticket_ids)));
+
+        error_log(print_r($ticket_ids, TRUE));
+        error_log(print_r(clean_data($ticket_ids), TRUE));
+        $view_data['tickets_dropdown'] = $this->Tickets_model->get_dropdown_list(array("id", "title"),"id", $where);
+
+        return $this->template->view("tickets/batch_merge/modal_form", $view_data);
+    }
+
+    function save_batch_merge() {
+        $this->access_only_allowed_members();
+
+        $batch_fields = $this->request->getPost("batch_fields");
+        if ($batch_fields) {
+            $fields_array = explode('-', $batch_fields);
+
+            $data = array();
+            foreach ($fields_array as $field) {
+                $data[$field] = $this->request->getPost($field);
+            }
+
+            $data = clean_data($data);
+
+            $ticket_ids = $this->request->getPost("ticket_ids");
+            if ($ticket_ids) {
+                $tickets_ids_array = explode('-', $ticket_ids);
+
+                foreach ($tickets_ids_array as $id) {
+                    $this->_check_permission_of_selected_ticket($id);
+                    $this->Tickets_model->ci_save($data, $id);
+                }
+
+                echo json_encode(array("success" => true, 'message' => app_lang('record_saved')));
+            }
+        } else {
+            echo json_encode(array('success' => false, 'message' => app_lang('no_field_has_selected')));
+            return false;
+        }
+    }
+
+
+
     /* batch update modal form */
 
     function batch_update_modal_form($ticket_ids = "") {

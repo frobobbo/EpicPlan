@@ -10,6 +10,7 @@
                 <?php
                 echo modal_anchor(get_uri("labels/modal_form"), "<i data-feather='tag' class='icon-16'></i> " . app_lang('manage_labels'), array("class" => "btn btn-default", "title" => app_lang('manage_labels'), "data-post-type" => "ticket"));
                 echo modal_anchor("", "<i data-feather='edit' class='icon-16'></i> " . app_lang('batch_update'), array("class" => "btn btn-info batch-update-btn text-white hide", "title" => app_lang('batch_update')));
+                echo modal_anchor("","<i data-feather='file-plus' class='icon-16'></i> " . app_lang("merge_tickets"), array("class" => "btn btn-info batch-merge-btn text-white hide", "title" => app_lang('merge_tickets')));
                 echo js_anchor("<i data-feather='check-square' class='icon-16'></i> " . app_lang("batch_update"), array("class" => "btn btn-default batch-active-btn"));
                 echo js_anchor("<i data-feather='x-square' class='icon-16'></i> " . app_lang("cancel_selection"), array("class" => "btn btn-default batch-cancel-btn hide"));
                 echo modal_anchor(get_uri("tickets/settings_modal_form"), "<i data-feather='settings' class='icon-16'></i> " . app_lang('settings'), array("class" => "btn btn-default", "title" => app_lang('settings')));

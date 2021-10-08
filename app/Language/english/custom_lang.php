@@ -18,5 +18,6 @@ $lang["vault_pass_pin"] = "Encryption PIN";
 $lang["owner"] = "Agent";
 $lang["client_tasks"] = "Client Tasks";
 $lang["add_client_task"] = "Add Client Task";
+$lang["merge_tickets"] = "Merge Tickets";
 
 return $lang;
