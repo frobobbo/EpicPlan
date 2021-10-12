@@ -19,5 +19,6 @@ $lang["owner"] = "Agent";
 $lang["client_tasks"] = "Client Tasks";
 $lang["add_client_task"] = "Add Client Task";
 $lang["merge_tickets"] = "Merge Tickets";
+$lang["notstarted"] = "Not Started";
 
 return $lang;
