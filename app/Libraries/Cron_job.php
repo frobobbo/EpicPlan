@@ -266,7 +266,7 @@ class Cron_job {
 
         //wait 10 minutes for each check
         $last_cron_job_time_of_imap = get_setting('last_cron_job_time_of_imap');
-        if ($last_cron_job_time_of_imap == "" || ($this->current_time > ($last_cron_job_time_of_imap * 1 + 600))) {
+        if ($last_cron_job_time_of_imap == "" || ($this->current_time > ($last_cron_job_time_of_imap * 1 + 100))) {
             return true;
         }
     }
