@@ -14,15 +14,15 @@ class Cron extends App_Controller {
     }
 
     function index() {
-        ini_set('max_execution_time', 300); //execute maximum 300 seconds 
+        ini_set('max_execution_time', 100); //execute maximum 300 seconds 
         //wait at least 5 minute befor starting new cron job
         $last_cron_job_time = get_setting('last_cron_job_time');
         echo "last cron job time: " + $last_cron_job_time;
         $current_time = strtotime(get_current_utc_time());
 
         echo "Current Time: " + $current_time;
-        echo "Calculated Last Cron Time: " + $last_cron_job_time * 1 + 300;
-        if ($last_cron_job_time == "" || ($current_time > ($last_cron_job_time * 1 + 300))) {
+        echo "Calculated Last Cron Time: " + $last_cron_job_time * 1 + 100;
+        if ($last_cron_job_time == "" || ($current_time > ($last_cron_job_time * 1 + 100))) {
             echo "Running Cron Job";
             $this->cron_job->run();
             app_hooks()->do_action("app_hook_after_cron_run");
